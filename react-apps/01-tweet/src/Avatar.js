@@ -5,7 +5,7 @@ function Avatar() {
     <img
       alt="avatar"
       className="avatar"
-      src="https://www.gravatar.com/avatar/nothing"
+      src="https://avatars.githubusercontent.com/u/29767625?s=400&u=e4ecc18866f0e89b96a99b4bb4131deffb49347f&v=4"
     />
   );
 }
