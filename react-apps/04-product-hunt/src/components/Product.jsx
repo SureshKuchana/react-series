@@ -2,27 +2,37 @@ import React from 'react'
 
 class Product extends React.Component {
     render() {
-      return (
-        <div className="item">
-          <div className="image">
-            <img alt="aqua" src="images/products/image-aqua.png" />
-          </div>
-          <div className="middle aligned content">
-            <div className="description">
-              <a href="javascript">Fort Knight</a>
-              <p>Authentic renaissance actors, delivered in just two weeks.</p>
+        return (
+            <div className='item' key={this.props.id}>
+              <div className='image'>
+                <img alt='' src={this.props.productImageUrl} />
+              </div>
+              <div className='middle aligned content'>
+                <div className='header'>
+                  <a href='##'>
+                    <i className='large caret up icon' />
+                  </a>
+                  {this.props.votes}
+                </div>
+                <div className='description'>
+                  <a href={this.props.url}>
+                    {this.props.title}
+                  </a>
+                  <p>
+                    {this.props.description}
+                  </p>
+                </div>
+                <div className='extra'>
+                  <span>Submitted by:</span>
+                  <img
+                    alt='ui'
+                    className='ui avatar image'
+                    src={this.props.submitterAvatarUrl}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="extra">
-              <span>Submitted by:</span>
-              <img
-                alt="daniel"
-                className="ui avatar image"
-                src="images/avatars/daniel.jpg"
-              />
-            </div>
-          </div>
-        </div>
-      );
+          );
     }
   }
 
