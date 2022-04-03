@@ -4,7 +4,10 @@ import Product from "./Product";
 
 class ProductList extends React.Component {
   render() {
-    const productComponents =  products.map((product) => {
+    const sortedProductList = products.sort((a, b) => (
+      b.votes - a.votes
+    ))
+    const productComponents = sortedProductList.map((product) => {
       return <Product 
         key={product.id}
         id={product.id}
