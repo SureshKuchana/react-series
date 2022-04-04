@@ -4,17 +4,40 @@ import Product from "./Product";
 
 class ProductList extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      products: [],
+    };
+  }
+
+  componentDidMount(){
+    this.setState({ products : products })
+  }
+
   handleProductVote = (productId) => {
-    console.log(productId + ' was upvoted.');
+    const modifiedProducts = this.state.products.map((product) => {
+      if(productId === product.id){
+        return Object.assign({},product,{
+          votes : product.votes + 1
+        })
+      }else{
+        return product
+      }
+    })
+    this.setState({
+      products : modifiedProducts
+    })
   }
 
   render() {
-    const sortedProductList = products.sort((a, b) => (
+    const sortedProductList = this.state.products.sort((a, b) => (
       b.votes - a.votes
     ))
     const productComponents = sortedProductList.map((product) => {
       return <Product 
-        key={product.id}
+        key={'product-' + product.id}
         id={product.id}
         title={product.title}
         description={product.description}
